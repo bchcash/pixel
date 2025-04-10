@@ -22,11 +22,4 @@ export default defineNuxtConfig({
       },
     },
   },
-   // Настройки для Cloudflare Pages
-   nitro: {
-    preset: 'cloudflare-pages', // Параметр, указывающий на Cloudflare Pages
-    output: {
-      dir: '.output', // Используйте только '.output', без подкаталога cloudflare
-    },
-  }
 })
