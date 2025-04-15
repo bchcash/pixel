@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
+
 useSeoMeta({
   title: 'Create and Share Your PEPU NFT with PIXEL',
   description: 'Unleash your creativity – forge unique PEPU NFTs and captivate the world.',
@@ -6,6 +8,7 @@ useSeoMeta({
   ogImage: '',
   twitterCard: 'summary_large_image',
 })
+
 if (import.meta.server) {
   useHead({
     meta: [
@@ -13,6 +16,8 @@ if (import.meta.server) {
     ],
   })
 }
+
+const route = useRoute()
 </script>
 
 <template>
@@ -20,13 +25,17 @@ if (import.meta.server) {
     <!-- Полоска с градиентом вверху -->
     <div class="color-banner"></div>
 
-    <AppHeader />
+    <!-- Показываем AppHeader только если НЕ /draw -->
+    <AppHeader v-if="route.path !== '/draw'" />
+
     <UContainer>
       <main class="min-h-[calc(100vh-192px)]">
         <NuxtPage />
       </main>
     </UContainer>
-    <AppFooter />
+
+    <!-- И футер тоже можно скрыть по желанию -->
+    <AppFooter v-if="route.path !== '/draw'" />
   </UApp>
 </template>
 

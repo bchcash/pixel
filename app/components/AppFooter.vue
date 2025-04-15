@@ -30,19 +30,19 @@ const isDark = computed({
           </template>
         </ClientOnly>
         <UButton
-          to="https://git.new/pepu-pixel"
+          to="https://github.com/nuxt/nuxt/graphs/contributors"
           color="neutral"
           variant="ghost"
           icon="i-simple-icons-github"
         />
         <UButton
-          to="https://x.com/pepu-pixel"
+          to="https://x.com/pepu_nft"
           color="neutral"
           variant="ghost"
           icon="i-simple-icons-x"
         />
         <UButton
-          to="https://t.me/pepu_artlab"
+          to="https://t.me/nft_pepu"
           color="neutral"
           variant="ghost"
           icon="hugeicons:telegram"
