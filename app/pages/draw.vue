@@ -273,83 +273,71 @@ async function save(dataURL: string) {
 
         <!-- Tab Content: About -->
         <div v-if="item.label === 'About'" class="py-12">
-          <UContainer
-            class="flex flex-col items-center gap-6 px-4 md:max-w-2xl md:px-0 mx-auto text-center"
-          >
-            <!-- Картинка в круге -->
-            <div
-              class="w-32 h-32 rounded-full overflow-hidden ring-4 ring-gray-300 shadow-lg"
-            >
-              <img
-                src="/pixel.jpg"
-                alt="PIXEL Logo"
-                class="object-cover w-full h-full"
-              />
-            </div>
+          <UContainer class="flex flex-col items-center gap-8 px-6 md:max-w-2xl md:px-0 mx-auto text-center">
+  <!-- Картинка в круге -->
+  <div class="w-36 h-36 rounded-full overflow-hidden ring-4 ring-gray-200 shadow-xl">
+    <img
+      src="/pixel.jpg"
+      alt="PIXEL Logo"
+      class="object-cover w-full h-full"
+    />
+  </div>
 
-            <!-- Контентный блок -->
-            <div
-              class="p-6 bg-white/80 rounded-2xl text-gray-900 shadow-md w-full"
-            >
-              <h3
-                class="text-2xl font-semibold text-gray-900 mb-4 tracking-tight"
-              >
-                About PEPU Pixel Hub
-              </h3>
-              <p class="text-base text-gray-600 leading-6">
-                PEPU Pixel Hub reimagines digital collectibles through pixel
-                NFTs on the
-                <span class="font-medium text-green-600"
-                  >Layer 2 Pepe Unchained</span
-                >
-                network.
-              </p>
-              <p class="mt-3 text-base text-gray-600 leading-6">
-                Every NFT generates a distinct cryptographic hash from image
-                metadata — exceptional rarity earns eternal placement in the
-                <span class="font-medium text-amber-600">Hall of Fame</span>.
-              </p>
+  <!-- Контентный блок -->
+  <div class="p-8 bg-white/80 rounded-2xl text-gray-900 shadow-xl w-full">
+    <h3 class="text-3xl font-semibold text-gray-900 mb-6 tracking-tight">
+Pepu <span class="text-red-500">❤️</span> Pixel</h3>
 
-              <!-- Контракт и ссылки -->
-              <div class="mt-6 space-y-3">
-                <div
-                  class="text-[0.8125rem] font-medium text-gray-500 flex items-center justify-center"
-                >
-                  📜 PIXEL CA:
-                  <a
-                    href="https://pepuscan.com/token/0x0"
-                    target="_blank"
-                    class="ml-1.5 text-blue-500 hover:text-blue-600 transition-colors underline decoration-transparent hover:decoration-blue-500"
-                  >
-                    0x0
-                  </a>
-                </div>
+<p class="text-lg text-gray-700 leading-7 mb-4">
+  Every
+  <UBadge color="primary" variant="solid" size="md" class="font-medium">NFT</UBadge>
+  generates a unique crypto
+  <UBadge color="secondary" variant="solid" size="md" class="font-medium">HASH.</UBadge>
+  If it has identical characters, claim the
+  <UBadge color="warning" variant="outline" size="md" class="font-medium">Mega Pepu Airdrop!</UBadge>
+  Your
+  <UBadge color="primary" variant="solid" size="md" class="font-medium">NFT</UBadge>
+  will stay in the
+  <UBadge color="neutral" variant="solid" size="md" class="font-medium">Hall of Fame</UBadge>
+  as a
+  <UBadge color="primary" variant="outline" size="md" class="font-medium">GoldPepuNFT</UBadge>,
+  available for trading through the future
+  <UBadge color="error" variant="solid" size="md" class="font-medium">NFT Swap Pool.</UBadge>
+</p>
+<USeparator label="PIXEL 📜 TOKEN" />
+    <!-- Контракт и ссылки -->
+    <div class="mt-8 space-y-4">
+      <div class="text-sm font-medium text-gray-500 flex items-center justify-center">
 
-                <div class="flex space-x-6 justify-center pt-4">
-                  <a
-                    href="https://t.me/nft_pepu"
-                    target="_blank"
-                    class="text-blue-500 hover:text-blue-600 transition-colors flex items-center group"
-                  >
-                    <span
-                      class="inline-block group-hover:scale-105 transition-transform"
-                      >Telegram ↗</span
-                    >
-                  </a>
-                  <a
-                    href="https://twitter.com/pepu_nft"
-                    target="_blank"
-                    class="text-blue-500 hover:text-blue-600 transition-colors flex items-center group"
-                  >
-                    <span
-                      class="inline-block group-hover:scale-105 transition-transform"
-                      >Twitter ↗</span
-                    >
-                  </a>
-                </div>
-              </div>
-            </div>
-          </UContainer>
+  <a
+    href="https://pepuscan.com/token/0x0"
+    target="_blank"
+    class="ml-2"
+  >
+    <UBadge color="primary" variant="outline" size="md" class="font-medium">0x0</UBadge>
+  </a>
+</div>
+
+      <div class="flex space-x-8 justify-center pt-6">
+        <a
+          href="https://t.me/nft_pepu"
+          target="_blank"
+          class="text-blue-500 hover:text-blue-600 transition-colors flex items-center group"
+        >
+          <span class="inline-block group-hover:scale-105 transition-transform">Telegram ↗</span>
+        </a>
+        <a
+          href="https://twitter.com/pepu_nft"
+          target="_blank"
+          class="text-blue-500 hover:text-blue-600 transition-colors flex items-center group"
+        >
+          <span class="inline-block group-hover:scale-105 transition-transform">Twitter ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</UContainer>
+
         </div>
       </template>
     </UTabs>
