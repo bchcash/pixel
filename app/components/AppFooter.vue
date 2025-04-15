@@ -30,13 +30,13 @@ const isDark = computed({
           </template>
         </ClientOnly>
         <UButton
-          to="https://git.new/draw"
+          to="https://git.new/pepu-pixel"
           color="neutral"
           variant="ghost"
           icon="i-simple-icons-github"
         />
         <UButton
-          to="https://x.com/atinux"
+          to="https://x.com/pepu-pixel"
           color="neutral"
           variant="ghost"
           icon="i-simple-icons-x"
@@ -50,10 +50,10 @@ const isDark = computed({
       </div>
       <div class="flex items-center justify-center lg:justify-start lg:flex-1 gap-x-1.5 mt-3 lg:mt-0 lg:order-1 text-center lg:text-left">
         <span class="text-sm">CA :<ULink
-          to="https://www.geckoterminal.com/pepe-unchained/pools/0xdcd692d5422dba5c653b82da6c5dcb4006a4ceab"
+          to="https://pepuscan.com/token/"
           class="font-medium hover:underline underline-offset-3"
         >
-          0x0afb32dc4cc0595654dc71a61a3132b3d90538f9
+          0x0
         </ULink></span>
       </div>
     </UContainer>
