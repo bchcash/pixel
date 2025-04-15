@@ -4,6 +4,6 @@
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
 }
-
+/* MY */
 .transform { transition: all 0.2s ease-in-out; }
 .hover\:scale-\[0\.98\]:hover { transform: scale(0.98); }
