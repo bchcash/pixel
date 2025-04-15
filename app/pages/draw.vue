@@ -183,7 +183,7 @@ async function save(dataURL: string) {
 
               <!-- DrawPad -->
               <div
-                class="rounded-xl bg-gray-50 p-4 ring-1 ring-gray-200/20 flex justify-center"
+                class="flex justify-center"
               >
                 <DrawPad
                   save-label="Create NFT"

@@ -10,7 +10,7 @@ const { loggedIn, clear } = useUserSession()
         class="flex items-center gap-1 flex-shrink-0 font-bold text-xl"
       >
         <UIcon name="emojione-monotone:frog-face" />
-        <h3>Pixel Art Hub</h3>
+        <h3>Pepu Art Hub</h3>
       </NuxtLink>
       <div class="flex items-center justify-end lg:flex-1 gap-1.5">
         <UButton
