@@ -1,53 +1,88 @@
 <script setup lang="ts">
-const { loggedIn } = useUserSession()
-const authProviders = useState<{ google: boolean, github: boolean }>('authProviders')
-const toast = useToast()
-const saving = ref(false)
-const drawing = ref('')
+import { ref, computed } from "vue";
+
+const toast = useToast();
+const saving = ref(false);
+const drawing = ref("");
+const walletAddress = ref<string | null>(null);
 
 function onDraw(dataURL: string) {
-  drawing.value = dataURL
+  drawing.value = dataURL;
 }
 
-async function save(dataURL: string) {
-  if (saving.value) return
-  saving.value = true
-  // Transform the dataURL to a Blob
-  const blob = await fetch(dataURL).then(res => res.blob())
-  // Create the form data
-  const form = new FormData()
-  form.append('drawing', new File([blob], `drawing.jpg`, { type: 'image/jpeg' }))
+async function connectWallet() {
+  if (window.ethereum) {
+    try {
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      walletAddress.value = accounts[0];
+      toast.add({
+        title: "Wallet Connected!",
+        description: `Connected: ${shortAddress.value}`,
+        color: "green",
+      });
+    } catch (err) {
+      console.error("User rejected connection");
+    }
+  } else {
+    alert("Metamask is not installed.");
+  }
+}
 
-  // Upload the file to the server
-  await $fetch('/api/upload', {
-    method: 'POST',
+const shortAddress = computed(() => {
+  if (!walletAddress.value) return "";
+  return `${walletAddress.value.slice(0, 6)}...${walletAddress.value.slice(
+    -4
+  )}`;
+});
+
+async function save(dataURL: string) {
+  if (saving.value) return;
+  if (!walletAddress.value) {
+    alert("Connect your Metamask wallet first!");
+    return;
+  }
+
+  saving.value = true;
+
+  const blob = await fetch(dataURL).then((res) => res.blob());
+  const form = new FormData();
+  form.append(
+    "drawing",
+    new File([blob], `drawing.jpg`, { type: "image/jpeg" })
+  );
+  form.append("address", walletAddress.value);
+  await $fetch("/api/upload", {
+    method: "POST",
     body: form,
   })
     .then(() => {
       toast.add({
-        title: 'Drawing shared!',
-        description: 'Your drawing has been shared with the world.',
-        color: 'green',
-      })
-      navigateTo('/')
-    }).catch((err) => {
-      toast.add({
-        title: 'Could not share drawing',
-        description: err.data?.message || err.message,
-        color: 'red',
-      })
+        title: "Drawing shared!",
+        description: "Your drawing has been shared with the world.",
+        color: "green",
+      });
+      navigateTo("/");
     })
-  saving.value = false
+    .catch((err) => {
+      toast.add({
+        title: "Could not share drawing",
+        description: err.data?.message || err.message,
+        color: "red",
+      });
+    });
+
+  saving.value = false;
 }
 </script>
 
 <template>
   <div class="my-8">
     <div class="mx-auto max-w-[400px]">
-      <p class="text-center pb-4">
-        Turn your art into PEPU NFTs!
-      </p>
-      <div v-if="loggedIn">
+      <p class="text-center pb-4">Turn your art into PEPU NFTs!</p>
+
+      <div v-if="walletAddress">
         <DrawPad
           save-label="Share"
           :saving="saving"
@@ -55,61 +90,19 @@ async function save(dataURL: string) {
           @save="save"
           @draw="onDraw"
         />
-        <!-- <AIDraw :drawing="drawing" class="mt-4" /> -->
-      </div>
-      <div
-        v-else
-        class="w-full space-y-6"
-      >
-        <div class="gap-y-6 flex flex-col">
-          <div class="space-y-3">
-            <UButton
-              v-if="authProviders.google"
-              to="/auth/google"
-              label="Sign-in with Google"
-              icon="i-logos-google-icon"
-              color="neutral"
-              variant="outline"
-              size="lg"
-              external
-              block
-            />
-            <UButton
-              v-if="authProviders.github"
-              to="/auth/github"
-              label="Sign-in with GitHub"
-              icon="i-simple-icons-github"
-              color="neutral"
-              size="lg"
-              external
-              block
-            />
-            <UButton
-              v-if="!authProviders.github && !authProviders.google"
-              to="/auth/anonymous"
-              label="Sign-in anonymously"
-              icon="i-ph-mask-happy-duotone"
-              color="neutral"
-              size="lg"
-              external
-              block
-            />
-          </div>
-        </div>
-        <p
-          v-if="authProviders.google || authProviders.github"
-          class="text-center text-sm text-(--ui-text-muted)"
-        >
-          Checkout the <UButton
-            to="https://github.com/pepu_artlab"
-            variant="link"
-            color="neutral"
-            target="_blank"
-            class="p-0"
-          >
-            ROADMAP
-          </UButton> of this Project.
+        <p class="text-center text-sm text-gray-500 mt-2">
+          Connected: {{ shortAddress }}
         </p>
+      </div>
+
+      <div v-else class="w-full space-y-6">
+        <UButton
+          @click="connectWallet"
+          label="Connect Metamask"
+          color="primary"
+          size="lg"
+          block
+        />
       </div>
     </div>
   </div>

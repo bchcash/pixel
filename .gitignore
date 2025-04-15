@@ -31,3 +31,5 @@ Thumbs.db
 # Nuxt generated
 /.nuxt/*
 /static/*.json
+
+.data
