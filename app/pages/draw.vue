@@ -154,8 +154,8 @@ async function save(dataURL: string) {
         },
       }"
     >
-      <!-- Tab Content: Create NFT -->
       <template #content="{ item }">
+        <!-- Tab Content: Create NFT -->
         <div
           v-if="item.label === 'Create NFT'"
           class="flex justify-center py-12 px-4"
@@ -173,16 +173,27 @@ async function save(dataURL: string) {
             </div>
 
             <div v-if="walletAddress" class="space-y-6 w-full">
+              <!-- Home Button -->
+              <NuxtLink
+                to="/"
+                class="text-gray-900 font-semibold hover:text-gray-700 hover:underline transition-all duration-300"
+              >
+                Hall of Fame
+              </NuxtLink>
+
+              <!-- DrawPad -->
               <div
                 class="rounded-xl bg-gray-50 p-4 ring-1 ring-gray-200/20 flex justify-center"
               >
                 <DrawPad
-                  save-label="Mint NFT"
+                  save-label="Create NFT"
                   :saving="saving"
                   @save="save"
                   @draw="onDraw"
                 />
               </div>
+
+              <!-- Wallet Address -->
               <p class="text-center text-[0.8125rem] font-medium text-gray-500">
                 Creator Wallet: {{ shortAddress }}
               </p>

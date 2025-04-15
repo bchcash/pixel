@@ -49,6 +49,13 @@ function shortenAddress(address: string) {
             class="w-full rounded aspect-1"
             loading="lazy"
           />
+          <!-- Badge with description -->
+          <div
+            v-if="drawing.customMetadata?.description"
+            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-cyan-100 text-sky-400 text-xs font-semibold px-3 py-1 rounded-full"
+          >
+            {{ drawing.customMetadata.description }}
+          </div>
         </div>
         <div class="flex items-center justify-between max-w-[400px]">
           <NuxtLink
