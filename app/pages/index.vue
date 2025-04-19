@@ -5,7 +5,7 @@
     <div class="max-w-4xl mx-auto relative">
       <header class="header text-center mb-16">
         <h1
-          class="text-4xl md:text-5xl font-mono text-retro-blue tracking-wider blink-cursor"
+          class="text-4xl md:text-5xl font-mono text-retro-blue tracking-wider blink-cursor  text-shadow"
         >
           P I X E L
         </h1>
@@ -38,30 +38,33 @@
           class="feature-card bg-gray-100 p-4 border-4 border-retro-blue shadow-[8px_8px_0_0_rgba(0,0,255,0.5)] hover-spin fade-in"
           style="animation-delay: 0.5s"
         >
-          <h3 class="text-lg font-mono text-retro-blue mb-1">⚡ Fast</h3>
+          <h3 class="text-lg font-mono text-retro-blue mb-1 font-bold">
+            Connect Wallet
+          </h3>
           <p class="text-gray-800 text-sm font-mono">
-            Built on cutting-edge tech for blazing-fast performance.
+            Connect your wallet to start creating your PEPU NFT.
           </p>
         </div>
         <div
           class="feature-card bg-gray-100 p-4 border-4 border-retro-green shadow-[8px_8px_0_0_rgba(0,255,0,0.5)] hover-spin fade-in"
           style="animation-delay: 0.6s"
         >
-          <h3 class="text-lg font-mono text-retro-green mb-1">🛠️ Modular</h3>
+          <h3 class="text-lg font-mono text-retro-green mb-1 font-bold">Create NFT</h3>
           <p class="text-gray-800 text-sm font-mono">
-            Designed for easy integration and scalability.
+            Design your unique PEPU NFT and publish it.
           </p>
         </div>
         <div
           class="feature-card bg-gray-100 p-4 border-4 border-retro-pink shadow-[8px_8px_0_0_rgba(255,105,180,0.5)] hover-spin fade-in"
           style="animation-delay: 0.7s"
         >
-          <h3 class="text-lg font-mono text-retro-pink mb-1">🎨 Stylish</h3>
+          <h3 class="text-lg font-mono text-retro-pink mb-1 font-bold">Win Airdrop</h3>
           <p class="text-gray-800 text-sm font-mono">
-            A clean and minimal design for all devices.
+            If your NFT hash is unique, earn airdrop or trade it.
           </p>
         </div>
       </div>
+      >
 
       <div class="cta text-center mb-16 flex justify-center gap-4">
         <NuxtLink
@@ -166,7 +169,7 @@ const roadmapItems = [
   },
   {
     icon: "i-lucide-sparkles",
-    title: "Hall of Fame Update",
+    title: "Hall of Fame",
     description: "Browse all NFTs and discover",
     link: "/",
     status: "Implemented",

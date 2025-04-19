@@ -100,6 +100,16 @@ async function save(dataURL: string) {
     </div>
 
     <div v-else class="space-y-6 w-full max-w-3xl mx-auto p-6 flex flex-col items-center justify-center">
+
+
+<!-- Картинка в кругу -->
+<img
+    src="/pixel.jpg"
+    alt="Pepu Logo"
+    class="w-32 h-32 rounded-full border-4 border-retro-pink shadow-lg mb-10"
+  />
+
+
       <button
         @click="connectWallet"
         class="bg-retro-yellow text-black px-6 py-3 hover:scale-[0.98] transition-all border-4 hover:border-retro-pink rounded-none"
