@@ -50,10 +50,10 @@ const isDark = computed({
       </div>
       <div class="flex items-center justify-center lg:justify-start lg:flex-1 gap-x-1.5 mt-3 lg:mt-0 lg:order-1 text-center lg:text-left">
         <span class="text-sm">CA :<ULink
-          to="https://pepuscan.com/token/"
+          to="https://pepuscan.com/token/0xecd2bafeb49acc6c6c820dbb537946988b67ebd3"
           class="font-medium hover:underline underline-offset-3"
         >
-          0x0
+          0xecd2bafeb49acc6c6c820dbb537946988b67ebd3
         </ULink></span>
       </div>
     </UContainer>

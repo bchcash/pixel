@@ -156,7 +156,7 @@ async function save() {
       class="mt-6 text-center"
       color="info"
       variant="subtle"
-      title="Please note, drawings with sensitive or political content will be removed without warning. Enjoy your creativity!"
+      title="Please note, drawings with sensitive or political content will be removed."
     />
   </div>
 </template>

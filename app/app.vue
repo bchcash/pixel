@@ -22,11 +22,11 @@ const route = useRoute()
 
 <template>
   <UApp>
-    <!-- Полоска с градиентом вверху -->
+    <!-- Верхняя градиентная полоска -->
     <div class="color-banner"></div>
 
-    <!-- Показываем AppHeader только если НЕ /draw -->
-    <AppHeader v-if="route.path !== '/draw'" />
+    <!-- Шапка для /wall -->
+    <AppHeader v-if="route.path === '/wall'" />
 
     <UContainer>
       <main class="min-h-[calc(100vh-192px)]">
@@ -34,8 +34,8 @@ const route = useRoute()
       </main>
     </UContainer>
 
-    <!-- И футер тоже можно скрыть по желанию -->
-    <AppFooter v-if="route.path !== '/draw'" />
+    <!-- Футер для /wall -->
+    <AppFooter v-if="route.path === '/wall'" />
   </UApp>
 </template>
 
